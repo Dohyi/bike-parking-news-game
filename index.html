@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>单车停在哪儿？</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head>
+<body>
+    <section class="opening" id="opening" aria-label="单车停在哪儿？">
+  <img
+    class="opening-art"
+    src="images/opening.png"
+    width="941"
+    height="1445"
+    alt="单车停在哪儿？给每个人留一条路。地铁站前，一辆共享单车挡住了盲道。"
+  >
+
+  <div class="opening-action">
+    <button id="start-game" type="button" aria-label="开始摆放">
+      <img src="images/start-button.png" alt="">
+    </button>
+  </div>
+</section>
+
+<main class="game" id="game" hidden>
+
+<header class="game-header">
+    <h1 id="game-title" tabindex="-1">
+        <button id="back-to-opening" type="button"
+                aria-label="单车停在哪儿？返回开场画面">
+            <img src="images/bike-mint-side.png" alt="">
+            <span>单车停在哪儿？</span>
+        </button>
+    </h1>
+</header>
+
+<nav class="missions" aria-label="选择任务">
+<button data-level="0">01 
+    <span>打开入口</span></button>
+<button data-level="1">02 
+    <span>让出盲道</span></button>
+<button data-level="2">03 
+    <span>晚高峰</span></button>
+</nav>
+
+<div class="brief">
+    <h2 id="mission"></h2>
+    <p id="instruction"></p>
+</div>
+
+<div class="map-shell">
+    <div id="map-scroll" class="map-scroll" tabindex="0" aria-label="游戏地图">
+        <div class="board" id="board" role="group" aria-label="地铁站前广场">
+
+<div class="extended" id="extended" hidden aria-hidden="true">
+</div>
+
+<svg class="routes" id="routes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+<div id="tiles"></div>
+<div id="people" aria-hidden="true"></div></div>
+
+<div id="map-tail" hidden aria-hidden="true"></div></div>
+
+<div id="scroll-note" hidden>↓ 地图南侧还有一处停车区</div></div>
+
+<div class="status">
+    <p id="hint" role="status"></p>
+    <span id="moves">0 次移动</span>
+</div>
+
+<div class="actions">
+    <button id="undo" disabled>撤销</button>
+    <button id="reset">重置</button>
+    <button id="test">通行测试</button>
+</div>
+
+<section id="result" hidden aria-labelledby="result-title">
+    <h2 id="result-title"></h2>
+    <ul id="checks"></ul>
+    <button id="advance"></button>
+</section>
+
+</main>
+
+<section class="ending" id="ending" hidden tabindex="-1"
+         aria-label="给每个人留一条路">
+  <img class="ending-art" src="images/ending-art.png"
+       width="941" height="1232"
+       alt="给每个人留一条路。单车停入车位后，地铁出入口和盲道恢复畅通。">
+
+  <div class="ending-panel">
+    <ul class="ending-checklist">
+      <li><span aria-hidden="true">✓</span> 留出地铁出入口</li>
+      <li><span aria-hidden="true">✓</span> 不要占用盲道</li>
+      <li><span aria-hidden="true">✓</span> 车位已满，就找备用停车区</li>
+    </ul>
+
+    <p>一辆单车停在哪里，关系到别人能不能顺利通行。</p>
+
+    <div class="ending-actions">
+      <a href="https://paper.people.com.cn/rmrb/pc/content/202605/28/content_30159501.html"
+         target="_blank" rel="noopener">阅读新闻原文</a>
+      <button id="ending-home" type="button">返回首页</button>
+    </div>
+  </div>
+</section>
+
+<audio id="game-bgm" src="./audio/bgm.mp3" preload="auto" loop></audio>
+
+</body>
+
+</html>
