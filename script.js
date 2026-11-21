@@ -379,7 +379,6 @@ get('ending-home').onclick = () => {
     drag.y = event.clientY;
 
     if (!drag.preview) {
-      // A short tap still uses the existing click handler.
       if (Math.hypot(drag.x - drag.startX, drag.y - drag.startY) < 7) return;
 
       const bike = positions.indexOf(drag.source);
@@ -395,7 +394,6 @@ get('ending-home').onclick = () => {
       document.body.append(preview);
       drag.preview = preview;
 
-      // Select only if needed, so dragging a selected bike keeps it selected.
       if (selected !== bike) selectOrMove(drag.source, bike);
       map.querySelector(`[data-spot="${drag.source}"]`)?.classList.add('drag-origin');
 
